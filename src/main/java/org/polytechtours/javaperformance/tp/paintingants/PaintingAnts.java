@@ -454,7 +454,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
 
     int i;
     String lMessage;
-
+    StringBuffer lMessageBuffer = new StringBuffer();
     mPainting.init();
 
     Thread currentThread = Thread.currentThread();
@@ -468,20 +468,26 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
 
     while (mApplis == currentThread) {
       if (mPause) {
-        lMessage = "pause";
+        //lMessage = "pause";
+        lMessageBuffer.setLength(0);
+        lMessageBuffer.append("pause");
       } else {
         synchronized (this) {
-          lMessage = "running (" + lastFps + ") ";
+          //lMessage = "running (" + lastFps + ") ";
+          lMessageBuffer.setLength(0);
+          lMessageBuffer.append("running (" + lastFps + ") ");
         }
 
         synchronized (mMutexCompteur) {
           mCompteur %= 10000;
           for (i = 0; i < mCompteur / 1000; i++) {
-            lMessage += ".";
+            //lMessage += ".";
+            lMessageBuffer.append(".");
           }
         }
 
       }
+      lMessage = lMessageBuffer.toString();
       showStatus(lMessage);
 
       try {
