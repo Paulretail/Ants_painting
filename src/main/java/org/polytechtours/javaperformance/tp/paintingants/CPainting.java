@@ -317,13 +317,6 @@ public class CPainting extends Canvas implements MouseListener {
     int intR, intG, intB;
     Color lColor;
 
-    /*for (int r = 0; r<256; r++){
-      for (int g = 0; g<256; g++){
-        for (int b = 0; b<256; b++){
-          tabColor[r][g][b] = null;
-        }
-      }
-    }*/
 
     synchronized (mMutexCouleurs) {
       if (!mSuspendu) {
@@ -361,6 +354,7 @@ public class CPainting extends Canvas implements MouseListener {
                 lColor = tabColor[intR][intG][intB];
               } else {
                 lColor = new Color(intR, intG, intB);
+                tabColor[intR][intG][intB] = lColor;
               }
 
               mGraphics.setColor(lColor);
