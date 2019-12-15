@@ -392,6 +392,7 @@ public class CPainting extends Canvas implements MouseListener {
                 lColor = tabColor[intR][intG][intB];
               } else {
                 lColor = new Color(intR, intG, intB);
+                tabColor[intR][intG][intB] = lColor;
               }
               mGraphics.setColor(lColor);
               m = (x + i - 2 + mDimension.width) % mDimension.width;
@@ -430,6 +431,7 @@ public class CPainting extends Canvas implements MouseListener {
                 lColor = tabColor[intR][intG][intB];
               } else {
                 lColor = new Color(intR, intG, intB);
+                tabColor[intR][intG][intB] = lColor;
               }
               mGraphics.setColor(lColor);
               m = (x + i - 3 + mDimension.width) % mDimension.width;
